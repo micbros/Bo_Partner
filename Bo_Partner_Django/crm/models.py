@@ -87,7 +87,7 @@ class KontaktFirma(models.Model):
     firma = models.ForeignKey(Firma,on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
-        return str(self.name) + " Primarykey: "+ str(self.pk)
+        return str(self.nachname)+" "+str(self.vorname) + " Primarykey: "+ str(self.pk)
 #---------------------------------------------------------    
 class MitarbeiterUni(models.Model):
     #id_mitarbeiter = models.

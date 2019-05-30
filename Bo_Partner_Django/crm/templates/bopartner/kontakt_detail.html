@@ -3,9 +3,12 @@
 {% block content %}
     <div class="post">
 
-        <h2>{{ kontakt.vorname }}</h2>
+        <h2>Kontakt</h2>
+        <p>id: {{kontakt.pk}}</p>
+        <p>{{ kontakt.vorname }}</p>
         <p>{{ kontakt.nachname|linebreaksbr }}</p>
         <p>{{ kontakt.email|linebreaksbr }}</p>
-        <p>{{ kontakt.freieBezeichnung|linebreaksbr }}</p>
+        <h3>Beschreibung</h3>
+        <p>{{ kontakt.freie_beschreibung|linebreaksbr }}</p>
     </div>
 {% endblock %}

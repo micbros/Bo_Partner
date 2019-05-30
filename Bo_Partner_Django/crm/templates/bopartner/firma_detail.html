@@ -25,6 +25,9 @@
                 <li><a href="{% url 'kontakt_detail' pk=kontakt.pk %}" >{{ kontakt.vorname }} {{ kontakt.nachname }}</a></li>
             {% endif %}
         {% endfor %}
-        <a href="{% url 'neuer_kontakt' %}" >neuer Kontakt <span class="glyphicon glyphicon-plus"></span>></a>
+        <h4>
+            <a href="{% url 'neuer_kontakt' %}" >neuer Kontakt <span class="glyphicon glyphicon-plus"></span></a>
+        </h4>
     </div>
+
 {% endblock %}
