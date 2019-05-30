@@ -4,18 +4,30 @@
     <div class="post">
 
         <h2>{{ firma.name }}</h2>
+        <h3>Anschrift</h3>
         <p>{{ firma.strasse|linebreaksbr }}</p>
         <p>{{ firma.hausnummer|linebreaksbr }}</p>
         <p>{{ firma.plz|linebreaksbr }}</p>
         <p>{{ firma.bundesland|linebreaksbr }}</p>
-        <p>{{ firma.pk|linebreaksbr }}</p>
-        <h1>Kontakte</h1>
+        <p>{{ firma.xKoordinate|linebreaksbr }}</p>
+        <p>{{ firma.yKoordinate|linebreaksbr }}</p>
+        <p>Primary_Key: {{ firma.pk|linebreaksbr }}</p>
+
+        <h3>Beschreibung</h3>
+        <p>{{ firma.freie_beschreibung|linebreaksbr }}</p>
+
+        <h3>Bereiche</h3>
+        <p>{{ firma.bereich|linebreaksbr }}</p>
+
+        <h3>Kontakte</h3>
         {% for kontakt in kontakte %}
             {% if kontakt.firma.name == firma.name %}
             <div class="post">
                 <div >
                     <p>{{ kontakt.vorname }}</p>
                     <p>{{ kontakt.nachname|linebreaksbr }}</p>
+                    <p>Primary_Key: {{ kontakt.pk|linebreaksbr }}</p>
+
                 </div>
             </div>
             {% endif %}

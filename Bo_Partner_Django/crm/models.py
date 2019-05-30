@@ -74,6 +74,8 @@ class Firma(models.Model):
     yKoordinate = models.FloatField(null=True, blank=True)
     bereich = MultiSelectField(max_length=200, choices=LISTE_BEREICH, null=True, blank=True)
 
+    def __str__(self):
+        return  str(self.name) + " Primarykey: "+ str(self.pk)
   
 class KontaktFirma(models.Model):
     #id_kontakt = models.
@@ -83,7 +85,9 @@ class KontaktFirma(models.Model):
     freie_beschreibung = models.TextField(null=True, blank=True)
     
     firma = models.ForeignKey(Firma,on_delete=models.SET_NULL, null=True, blank=True)
-    
+
+    def __str__(self):
+        return str(self.name) + " Primarykey: "+ str(self.pk)
 #---------------------------------------------------------    
 class MitarbeiterUni(models.Model):
     #id_mitarbeiter = models.
