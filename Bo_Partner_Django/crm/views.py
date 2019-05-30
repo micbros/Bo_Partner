@@ -44,3 +44,8 @@ def neuer_kontakt(request):
     else:
         form = Neuer_kontakt()
     return render(request, 'bopartner/neuer_kontakt.html', {'form': form})
+
+@login_required
+def kontakt_detail(request, pk):
+    kontakt = get_object_or_404(Firma, pk=pk)
+    return render(request, 'bopartner/firma_detail.html', {'kontakt':kontakt})

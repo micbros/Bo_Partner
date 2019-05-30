@@ -22,14 +22,7 @@
         <h3>Kontakte</h3>
         {% for kontakt in kontakte %}
             {% if kontakt.firma.name == firma.name %}
-            <div class="post">
-                <div >
-                    <p>{{ kontakt.vorname }}</p>
-                    <p>{{ kontakt.nachname|linebreaksbr }}</p>
-                    <p>Primary_Key: {{ kontakt.pk|linebreaksbr }}</p>
-
-                </div>
-            </div>
+                <li><a href="{% url 'kontakt_detail' pk=kontakt.pk %}" >{{ kontakt.vorname }} {{ kontakt.nachname }}</a></li>
             {% endif %}
         {% endfor %}
         <a href="{% url 'neuer_kontakt' %}" >neuer Kontakt <span class="glyphicon glyphicon-plus"></span>></a>
