@@ -1,0 +1,10 @@
+{% extends 'bopartner/base.html' %}
+
+{% block content %}
+    <div class="post">
+
+        <h2>{{ kontakt.vorname }}</h2>
+        <p>{{ kontakt.nachname|linebreaksbr }}</p>
+        <p>{{ kontakt.freieBezeichnung|linebreaksbr }}</p>
+    </div>
+{% endblock %}

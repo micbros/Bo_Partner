@@ -1,0 +1,25 @@
+{% extends 'bopartner/base.html' %}
+
+{% block content %}
+    <div class="post">
+
+        <h2>{{ firma.name }}</h2>
+        <p>{{ firma.strasse|linebreaksbr }}</p>
+        <p>{{ firma.hausnummer|linebreaksbr }}</p>
+        <p>{{ firma.plz|linebreaksbr }}</p>
+        <p>{{ firma.bundesland|linebreaksbr }}</p>
+        <p>{{ firma.pk|linebreaksbr }}</p>
+        <h1>Kontakte</h1>
+        {% for kontakt in kontakte %}
+            {% if kontakt.firma.name == firma.name %}
+            <div class="post">
+                <div >
+                    <p>{{ kontakt.vorname }}</p>
+                    <p>{{ kontakt.nachname|linebreaksbr }}</p>
+                </div>
+            </div>
+            {% endif %}
+        {% endfor %}
+        <a href="{% url 'neuer_kontakt' %}" >neuer Kontakt <span class="glyphicon glyphicon-plus"></span>></a>
+    </div>
+{% endblock %}

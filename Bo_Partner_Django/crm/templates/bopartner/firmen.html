@@ -1,0 +1,14 @@
+    {% extends 'bopartner/base.html' %}
+
+        {% block content %}
+            {% for firma in firms %}
+            <div class="post">
+                <div >
+                    <h1>><a href="{% url 'firma_detail' pk=firma.pk %}">{{ firma.name }}</a></h1>
+                </div>
+
+                <p>{{ firma.freieBeschreibung|linebreaksbr }}</p>
+
+            </div>
+            {% endfor %}
+        {% endblock %}
