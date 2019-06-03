@@ -86,6 +86,8 @@ class KontaktFirma(models.Model):
     vorname = models.CharField(max_length=50, blank=False) #max_length = required
     nachname = models.CharField(max_length=50, blank=False)
     email = models.EmailField(null=True)
+    telefon = models.CharField(max_length=30, blank=True, null=True)
+    telefon2 = models.CharField(max_length=30, blank=True, null=True)
     freie_beschreibung = models.TextField(null=True, blank=True)
     
     firma = models.ForeignKey(Firma,on_delete=models.SET_NULL, null=True, blank=True)

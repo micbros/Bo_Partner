@@ -5,9 +5,11 @@
 
         <h2>Kontakt</h2>
         <p>id: {{kontakt.pk}}</p>
-        <p>{{ kontakt.vorname }}</p>
-        <p>{{ kontakt.nachname|linebreaksbr }}</p>
-        <p>{{ kontakt.email|linebreaksbr }}</p>
+        <p>Vorname: {{ kontakt.vorname }}</p>
+        <p>Nachname: {{ kontakt.nachname|linebreaksbr }}</p>
+        <p>Telefon 1: {{ kontakt.telefon|linebreaksbr }}</p>
+        <p>Telefon 2: {{ kontakt.telefon2|linebreaksbr }}</p>
+        <p>Email: {{ kontakt.email|linebreaksbr }}</p>
         <h3>Beschreibung</h3>
         <p>{{ kontakt.freie_beschreibung|linebreaksbr }}</p>
     </div>

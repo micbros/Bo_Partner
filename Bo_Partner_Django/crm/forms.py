@@ -16,8 +16,8 @@ class Neue_firma(forms.ModelForm):
 class Neuer_kontakt(forms.ModelForm):
     class Meta:
         model = KontaktFirma
-        fields = ('vorname','nachname','email','freie_beschreibung', 'firma')
+        fields = ('vorname','nachname', 'telefon', 'telefon2','email','freie_beschreibung', 'firma')
 
 
 
-        #test kommentar
+
