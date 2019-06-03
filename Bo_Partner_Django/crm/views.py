@@ -49,3 +49,8 @@ def neuer_kontakt(request):
 def kontakt_detail(request, pk):
     kontakt = get_object_or_404(KontaktFirma, pk=pk)
     return render(request, 'bopartner/kontakt_detail.html', {'kontakt':kontakt})
+
+@login_required
+def firmen_kartenuebersicht(request):
+    firmen = Firma.objects.exclude(xKoordinate__isnull=True,yKoordinate__isnull=True)
+    return render(request, 'bopartner/firmen_kartenuebersicht.html', {'firmen': firmen})

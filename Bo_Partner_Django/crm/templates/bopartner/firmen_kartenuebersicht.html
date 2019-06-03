@@ -1,0 +1,13 @@
+{% extends 'bopartner/base.html' %}
+
+{% block content %}
+<div id="mapid"></div>
+<script>
+    var mymap = L.map('mapid').setView([51.0, 10.0], 6);
+    var topplus = L.tileLayer.wms('http://sgx.geodatenzentrum.de/wms_topplus_web_open?', { format: 'image/png', layers: 'web' }).addTo(mymap);
+    {% for firma in firmen %}
+    {% load l10n %}
+    L.marker([{{ firma.xKoordinate | unlocalize }}, {{ firma.yKoordinate | unlocalize }}]).addTo(mymap).bindPopup("{{ firma.name }}");
+    {% endfor %}
+</script>
+{% endblock %}
