@@ -76,7 +76,11 @@ class Firma(models.Model):
 
     def __str__(self):
         return  str(self.name) + " Primarykey: "+ str(self.pk)
-  
+
+    class Meta:
+        verbose_name_plural = "Firmen"
+
+
 class KontaktFirma(models.Model):
     #id_kontakt = models.
     vorname = models.CharField(max_length=50, blank=False) #max_length = required
@@ -88,13 +92,19 @@ class KontaktFirma(models.Model):
 
     def __str__(self):
         return str(self.nachname)+" "+str(self.vorname) + " Primarykey: "+ str(self.pk)
+
+    class Meta:
+        verbose_name_plural = "Kontakt Firmen"
 #---------------------------------------------------------    
 class MitarbeiterUni(models.Model):
     #id_mitarbeiter = models.
     vorname = models.CharField(max_length=50, blank=False) #max_length = required
     nachname = models.CharField(max_length=50, blank=False)
     status = models.CharField(max_length=50, blank=True)
-    
+
+    class Meta:
+        verbose_name_plural = "Mitarbeiter Uni"
+
 class Protokoll(models.Model):
     #id_protokoll = models.
     datum = models.DateTimeField(blank=False)
@@ -102,7 +112,11 @@ class Protokoll(models.Model):
     text = models.TextField(blank=False)
     
     kontaktfirma = models.ForeignKey(KontaktFirma, on_delete=models.CASCADE, default=-1)
-    
+
+
+    class Meta:
+        verbose_name_plural = "Protokolle"
+
 class Dokument(models.Model):
     #id_dokument = models.
     titel = models.CharField(max_length=100, blank=False)
@@ -112,3 +126,7 @@ class Dokument(models.Model):
     
     firma = models.ForeignKey(Firma,on_delete=models.SET_NULL, null=True, blank=True)
     kontaktfirma = models.ForeignKey(KontaktFirma, on_delete=models.CASCADE, default=-1)
+
+
+    class Meta:
+        verbose_name_plural = "Dokumente"
