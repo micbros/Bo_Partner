@@ -17,3 +17,7 @@ class Neuer_kontakt(forms.ModelForm):
     class Meta:
         model = KontaktFirma
         fields = ('vorname','nachname','email','freie_beschreibung', 'firma')
+
+
+
+        #test kommentar
