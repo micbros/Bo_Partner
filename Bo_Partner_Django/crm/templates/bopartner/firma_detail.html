@@ -5,9 +5,8 @@
 
         <h2>{{ firma.name }}</h2>
         <h3>Anschrift</h3>
-        <p>{{ firma.strasse|linebreaksbr }}</p>
-        <p>{{ firma.hausnummer|linebreaksbr }}</p>
-        <p>{{ firma.plz|linebreaksbr }}</p>
+        <p>{{ firma.strasse}} {{ firma.hausnummer}} {% if firma.hausnummerzusatz|length %}{{firma.hausnummerzusatz}} {%endif%}</p>
+        <p>{{ firma.plz}} {{firma.ort}}</p>
         <p>{{ firma.bundesland|linebreaksbr }}</p>
         <p>{{ firma.xKoordinate|linebreaksbr }}</p>
         <p>{{ firma.yKoordinate|linebreaksbr }}</p>
@@ -18,7 +17,8 @@
 
         <h3>Bereiche</h3>
         <p>{{ firma.bereich|linebreaksbr }}</p>
-
+        
+        {% if user.is_authenticated %}
         <h3>Kontakte</h3>
         {% for kontakt in kontakte %}
             {% if kontakt.firma.name == firma.name %}
@@ -28,6 +28,10 @@
         <h4>
             <a href="{% url 'neuer_kontakt' %}" >neuer Kontakt <span class="glyphicon glyphicon-plus"></span></a>
         </h4>
+        
+        {% else %}
+
+        {% endif %}
     </div>
 
 {% endblock %}

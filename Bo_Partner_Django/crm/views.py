@@ -9,7 +9,7 @@ from .models import *
 from .forms import *
 from django.shortcuts import redirect
 
-@login_required
+#@login_required
 def firmen(request):
     firms = Firma.objects.all()
     return render(request, 'bopartner/firmen.html', {'firms': firms})
@@ -27,7 +27,7 @@ def neue_firma(request):
     return render(request, 'bopartner/neue_firma.html', {'form': form})
 
 
-@login_required
+#@login_required
 def firma_detail(request, pk):
     firma = get_object_or_404(Firma, pk=pk)
     kontakte = KontaktFirma.objects.all()
@@ -50,7 +50,7 @@ def kontakt_detail(request, pk):
     kontakt = get_object_or_404(KontaktFirma, pk=pk)
     return render(request, 'bopartner/kontakt_detail.html', {'kontakt':kontakt})
 
-@login_required
+#@login_required
 def firmen_kartenuebersicht(request):
     firmen = Firma.objects.exclude(xKoordinate__isnull=True,yKoordinate__isnull=True)
     return render(request, 'bopartner/firmen_kartenuebersicht.html', {'firmen': firmen})

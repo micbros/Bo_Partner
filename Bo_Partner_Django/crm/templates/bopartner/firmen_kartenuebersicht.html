@@ -3,11 +3,27 @@
 {% block content %}
 <div id="mapid"></div>
 <script>
-    var mymap = L.map('mapid').setView([51.0, 10.0], 6);
-    var topplus = L.tileLayer.wms('http://sgx.geodatenzentrum.de/wms_topplus_web_open?', { format: 'image/png', layers: 'web' }).addTo(mymap);
-    {% for firma in firmen %}
-    {% load l10n %}
-    L.marker([{{ firma.xKoordinate | unlocalize }}, {{ firma.yKoordinate | unlocalize }}]).addTo(mymap).bindPopup("{{ firma.name }}");
-    {% endfor %}
+    function loadMap(event){
+
+        var mymap = L.map('mapid').setView([51.0, 10.0], 6);
+        var topplus = L.tileLayer.wms('http://sgx.geodatenzentrum.de/wms_topplus_open?', {format: 'image/png', layers: 'web', attribution: '&copy; <a href="http://www.bkg.bund.de">Bundesamt f&uuml;r Kartographie und Geod&auml;sie 2019</a>, <a href=" http://sg.geodatenzentrum.de/web_public/Datenquellen_TopPlus_Open.pdf">Datenquellen</a>'}).addTo(mymap);
+        
+        {% for firma in firmen %}
+        {% load l10n %}
+        L.marker([{{ firma.xKoordinate | unlocalize }}, {{ firma.yKoordinate | unlocalize }}]).addTo(mymap).bindPopup("{{ firma.name }}");
+        {% endfor %}
+
+        
+        //Scale Controls
+        scaleControl = L.control.scale({maxWidth:200, metric:true, imperial:false});
+        scaleControl.setPosition('bottomleft');
+        scaleControl.addTo(mymap);
+        
+        //Ergaenzen der Quellen
+        attributionControl = mymap.attributionControl;
+        attributionControl.addAttribution("und Hochschule Bochum");
+    }
+    
+    document.addEventListener('DOMContentLoaded', loadMap);
 </script>
 {% endblock %}
