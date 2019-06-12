@@ -10,7 +10,7 @@
         
         {% for firma in firmen %}
         {% load l10n %}
-        L.marker([{{ firma.xKoordinate | unlocalize }}, {{ firma.yKoordinate | unlocalize }}]).addTo(mymap).bindPopup("{{ firma.name }}");
+        L.marker([{{ firma.xKoordinate | unlocalize }}, {{ firma.yKoordinate | unlocalize }}]).addTo(mymap).bindPopup("<a href='{% url 'firma_detail' pk=firma.pk %}'>{{ firma.name }}</a>");
         {% endfor %}
 
         
