@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     
     #third party
     'multiselectfield',
+    'django_filters',
     
     #own
     'crm'

@@ -1,0 +1,13 @@
+{% extends 'bopartner/base.html' %}
+
+{% block content %}
+  <form method="get">
+    {{ filter.form.as_p }}
+    <button type="submit">Suche</button>
+  </form>
+  <ul>
+  {% for firma in filter.qs %}
+    <li>{{ firma.name }}</li>
+  {% endfor %}
+  </ul>
+{% endblock %}

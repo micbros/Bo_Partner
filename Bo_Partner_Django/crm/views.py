@@ -8,6 +8,7 @@ from django.utils import timezone
 from .models import *
 from .forms import *
 from django.shortcuts import redirect
+from .filters import *
 
 #@login_required
 def firmen(request):
@@ -54,3 +55,8 @@ def kontakt_detail(request, pk):
 def firmen_kartenuebersicht(request):
     firmen = Firma.objects.exclude(xKoordinate__isnull=True,yKoordinate__isnull=True)
     return render(request, 'bopartner/firmen_kartenuebersicht.html', {'firmen': firmen})
+
+def firmen_gefiltert(request):
+    firmen_liste = Firma.objects.all()
+    firmen_filter = Filter_Bereich(request.GET,queryset=firmen_liste)
+    return render(request, 'bopartner/firmen_gefiltert.html', {'filter': firmen_filter})
