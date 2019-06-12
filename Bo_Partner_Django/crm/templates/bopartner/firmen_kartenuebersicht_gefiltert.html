@@ -1,6 +1,15 @@
 {% extends 'bopartner/base.html' %}
 
 {% block content %}
+<form method="get">
+        {{ filter.form.as_p }}
+        <button type="submit">Suche</button>
+      </form>
+      <ul>
+      {% for firma in filter.qs %}
+        <li><a href="{% url 'firma_detail' pk=firma.pk %}">{{ firma.name }}</a></li>
+      {% endfor %}
+      </ul>
 <div id="mapid"></div>
 <script>
     function loadMap(event){
@@ -8,7 +17,7 @@
         var mymap = L.map('mapid').setView([51.0, 10.0], 6);
         var topplus = L.tileLayer.wms('http://sgx.geodatenzentrum.de/wms_topplus_open?', {format: 'image/png', layers: 'web', attribution: '&copy; <a href="http://www.bkg.bund.de">Bundesamt f&uuml;r Kartographie und Geod&auml;sie 2019</a>, <a href=" http://sg.geodatenzentrum.de/web_public/Datenquellen_TopPlus_Open.pdf">Datenquellen</a>'}).addTo(mymap);
         
-        {% for firma in firmen %}
+        {% for firma in filter.qs %}
         {% load l10n %}
         {% if firma.xKoordinate != None and firma.yKoordinate != None %}
         L.marker([{{ firma.xKoordinate | unlocalize }}, {{ firma.yKoordinate | unlocalize }}]).addTo(mymap).bindPopup("<a href='{% url 'firma_detail' pk=firma.pk %}'>{{ firma.name }}</a>");

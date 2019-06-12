@@ -12,4 +12,5 @@ urlpatterns = [
     path('firmen/kontakt_detail/<int:pk>', views.kontakt_detail, name='kontakt_detail'),
     path('firmen_kartenuebersicht', views.firmen_kartenuebersicht, name='firmen_kartenuebersicht'),
     url(r'^firmen_gefiltert/$', views.firmen_gefiltert, name='firmen_gefiltert'),
+    url(r'^firmen_kartenuebersicht_gefiltert/$', views.firmen_kartenuebersicht_gefiltert, name='firmen_kartenuebersicht_gefiltert'),
 ]

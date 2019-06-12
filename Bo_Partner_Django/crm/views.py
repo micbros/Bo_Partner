@@ -53,10 +53,15 @@ def kontakt_detail(request, pk):
 
 #@login_required
 def firmen_kartenuebersicht(request):
-    firmen = Firma.objects.exclude(xKoordinate__isnull=True,yKoordinate__isnull=True)
+    firmen = Firma.objects.all()
     return render(request, 'bopartner/firmen_kartenuebersicht.html', {'firmen': firmen})
 
 def firmen_gefiltert(request):
     firmen_liste = Firma.objects.all()
     firmen_filter = Filter_Bereich(request.GET,queryset=firmen_liste)
     return render(request, 'bopartner/firmen_gefiltert.html', {'filter': firmen_filter})
+
+def firmen_kartenuebersicht_gefiltert(request):
+    firmen_liste = Firma.objects.all()
+    firmen_filter = Filter_Bereich(request.GET,queryset=firmen_liste)
+    return render(request, 'bopartner/firmen_kartenuebersicht_gefiltert.html', {'filter': firmen_filter})
