@@ -32,6 +32,13 @@ class Firma(models.Model):
             ('Verband', 'Verband')
     )
     
+    LISTE_BEFAEHIGUNG = (
+            ('Bacherlorarbeit', 'Bacherlorarbeit'),
+            ('Masterarbeit', 'Masterarbeit'),
+            ('Praktikum', 'Praktikum'),
+            ('Exkursion', 'Exkursion')
+    )
+
     LISTE_BEREICH = (
             ('Agrarwirtschaft','Agrarwirtschaft'),
             ('CAD','CAD'),
@@ -73,6 +80,7 @@ class Firma(models.Model):
     xKoordinate = models.FloatField(null=True, blank=True)
     yKoordinate = models.FloatField(null=True, blank=True)
     bereich = MultiSelectField(max_length=200, choices=LISTE_BEREICH, null=True, blank=True)
+    befaehigung =  MultiSelectField(max_length=200, choices=LISTE_BEFAEHIGUNG, null=True, blank=True)
 
     def __str__(self):
         return  str(self.name) + " Primarykey: "+ str(self.pk)
@@ -91,6 +99,7 @@ class Firma(models.Model):
 
 
 class KontaktFirma(models.Model):
+
     #id_kontakt = models.
     vorname = models.CharField(max_length=50, blank=False) #max_length = required
     nachname = models.CharField(max_length=50, blank=False)
