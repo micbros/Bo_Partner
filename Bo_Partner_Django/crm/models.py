@@ -1,6 +1,6 @@
 from django.db import models
 from multiselectfield import MultiSelectField
-
+import geocoder
 
 # Create your models here.
 
@@ -76,6 +76,15 @@ class Firma(models.Model):
 
     def __str__(self):
         return  str(self.name) + " Primarykey: "+ str(self.pk)
+
+    def geocode(self):
+        hsnrzus = self.hausnummerzusatz if self.hausnummerzusatz else ""
+        address = self.strasse + " " + str(self.hausnummer) + hsnrzus + ", " + self.ort
+        geocode_result = geocoder.osm(address)
+
+        self.xKoordinate = geocode_result.latlng[0]
+        self.yKoordinate = geocode_result.latlng[1]
+
 
     class Meta:
         verbose_name_plural = "Firmen"

@@ -11,7 +11,7 @@ class Neue_firma(forms.ModelForm):
     class Meta:
         model = Firma
         fields = ('name', 'freie_beschreibung', 'strasse', 'hausnummer', 'hausnummerzusatz',
-                  'plz', 'ort', 'bundesland', 'land', 'xKoordinate', 'yKoordinate', 'bereich')
+                  'plz', 'ort', 'bundesland', 'land', 'bereich')
 
 class Neuer_kontakt(forms.ModelForm):
     class Meta:

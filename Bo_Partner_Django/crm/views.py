@@ -21,6 +21,7 @@ def neue_firma(request):
         form = Neue_firma(request.POST)
         if form.is_valid():
             firma = form.save(commit=False)
+            firma.geocode()
             firma.save()
             return redirect('firma_detail', pk=firma.pk)
     else:
