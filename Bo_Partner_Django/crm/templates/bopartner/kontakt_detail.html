@@ -3,14 +3,21 @@
 {% block content %}
     <div class="post">
 
-        <h2>Kontakt</h2>
-        <p>id: {{kontakt.pk}}</p>
-        <p>Vorname: {{ kontakt.vorname }}</p>
-        <p>Nachname: {{ kontakt.nachname|linebreaksbr }}</p>
-        <p>Telefon 1: {{ kontakt.telefon|linebreaksbr }}</p>
-        <p>Telefon 2: {{ kontakt.telefon2|linebreaksbr }}</p>
-        <p>Email: {{ kontakt.email|linebreaksbr }}</p>
-        <h3>Beschreibung</h3>
-        <p>{{ kontakt.freie_beschreibung|linebreaksbr }}</p>
+
+        <ul>
+            <li class="list-group-item"><b>Kontakt</b></li>
+            <li class="list-group-item">Vorname: {{ kontakt.vorname }}</li>
+            <li class="list-group-item">Nachname: {{ kontakt.nachname }}</li>
+            {% if kontakt.telefon %}
+                <li class="list-group-item">Telefon: {{ kontakt.telefon }}</li>
+            {% endif %}
+            {% if kontakt.telefon2 %}
+                <li class="list-group-item">Telefon: {{ kontakt.telefon2 }}</li>
+            {% endif %}
+            <li class="list-group-item">Email: {{kontakt.email}}</li>
+            <li class="list-group-item"><b>Beschreibung</b></li>
+            <li class="list-group-item">{{ kontakt.freie_beschreibung }}</li>
+        </ul>
+
     </div>
 {% endblock %}

@@ -5,13 +5,12 @@
 {% block content %}
 <div class="container">
 
-    <b>{{ firma.name }}</b>
-    <br>
 
     <div>
 
 
         <ul>
+            <li class="list-group-item"><b>Firma: {{firma.name}}</b></li>
             <li class="list-group-item"><b>Anschrift</b></li>
             <li class="list-group-item">Straße: {{ firma.strasse }}</li>
             <li class="list-group-item">Hausnummer: {{ firma.hausnummer }}</li>
