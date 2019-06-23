@@ -3,50 +3,60 @@
 
 
 {% block content %}
-<div class="post">
+<div class="container">
 
-    <h2>{{ firma.name }}</h2>
+    <b>{{ firma.name }}</b>
+    <br>
 
-    <div class="anschrift">
-        <h3>Anschrift</h3>
+    <div>
 
-        <p>{{ firma.strasse}} {{ firma.hausnummer}} {% if firma.hausnummerzusatz|length %}{{firma.hausnummerzusatz}}
-            {%endif%}<br>
-            {{ firma.plz}} {{firma.ort}}<br>
-            {{ firma.bundesland|linebreaksbr }}</p>
-        <p>{{ firma.xKoordinate|linebreaksbr }}<br>
-            {{ firma.yKoordinate|linebreaksbr }}</p>
-        
+
+        <ul>
+            <li class="list-group-item"><b>Anschrift</b></li>
+            <li class="list-group-item">Straße: {{ firma.strasse }}</li>
+            <li class="list-group-item">Hausnummer: {{ firma.hausnummer }}</li>
+            {% if firma.hausnummerzusatz|length %}
+                <li class="list-group-item">Hausnummerzusatz: {{ firma.hausnummerzusatz }}</li>
+            {%endif%}
+            <li class="list-group-item">Postleitzahl: {{ firma.plz }}</li>
+            <li class="list-group-item">Bundesland: {{ firma.bundesland }}</li>
+            <li class="list-group-item">Koordinaten: {{ firma.xKoordinate }}       {{ firma.yKoordinate }}</li>
+        </ul>
+
         
     </div>
 
-    <div class="beschreibung">
-        <h3>Beschreibung</h3>
-
-        <p>{{ firma.freie_beschreibung|linebreaksbr }}</p>
+    <div>
+        <ul>
+            <li class="list-group-item"><b>Beschreibung</b></li>
+            <li class="list-group-item">{{ firma.freie_beschreibung|linebreaksbr }}</li>
+        </ul>
         
     </div>
 
-    <div class="bereich">
-        <h3>Bereiche</h3>
-
-        <p>{{ firma.bereich|linebreaksbr }}</p>
+    <div>
+        <ul>
+            <li class="list-group-item"><b>Bereiche</b></li>
+            <li class="list-group-item">{{ firma.bereich|linebreaksbr }}</li>
+        </ul>
         
     </div>
 
     {% if user.is_authenticated %}
-    <div class="kontakte">
-        <h3>Kontakte</h3>
+    <div>
 
-        {% for kontakt in kontakte %}
-        {% if kontakt.firma.name == firma.name %}
-        <li><a href="{% url 'kontakt_detail' pk=kontakt.pk %}">{{ kontakt.vorname }} {{ kontakt.nachname }}</a></li>
-        {% endif %}
-        {% endfor %}
-        <h4>
-            <a href="{% url 'neuer_kontakt' %}">neuer Kontakt <span class="glyphicon glyphicon-plus"></span></a>
-        </h4>
-        <hr>
+        <ul>
+            <li class="list-group-item"><b>Kontakte</b></li>
+            <li class="list-group-item">
+                {% for kontakt in kontakte %}
+                    {% if kontakt.firma.name == firma.name %}
+                            <a href="{% url 'kontakt_detail' pk=kontakt.pk %}">{{ kontakt.vorname }} {{ kontakt.nachname }}</a><br>
+                    {% endif %}
+                {% endfor %}
+            </li>
+            <li class="list-group-item"><a href="{% url 'neuer_kontakt' %}">neuer Kontakt <span class="glyphicon glyphicon-plus"></span></a></li>
+        </ul>
+
     </div>
 
     {% else %}
