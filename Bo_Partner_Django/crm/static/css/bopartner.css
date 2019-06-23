@@ -54,15 +54,26 @@ h1, h2, h3, h4 {
     color: #000000;
 }
 
-#mapid { height: 500px; }
-
-
-
-
+#mapid {
+    height: 500px; }
 
 .navbar .navbar-nav li a:hover {
     color: #e2001a !important;
 }
+
+h2 {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+
+h3 {
+    font-size: 1em;
+    font-weight: bold;
+    
+}
+
+
 
 
 

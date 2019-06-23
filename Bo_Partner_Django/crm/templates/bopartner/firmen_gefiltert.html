@@ -1,13 +1,25 @@
 {% extends 'bopartner/base.html' %}
 
+{% load crispy_forms_tags %}
+
 {% block content %}
-  <form method="get">
-    {{ filter.form.as_p }}
-    <button type="submit">Suche</button>
-  </form>
-  <ul>
-  {% for firma in filter.qs %}
-    <li>{{ firma.name }}</li>
-  {% endfor %}
-  </ul>
+<div class="container">
+    <div class="row">
+      <div class="col-4">
+        <form method="get">
+            {{ filter.form|crispy}}
+          <button type="submit" class="btn btn-outline-danger btn-md">Suche</button>
+        </form>
+      </div>
+      <div class="col-8">
+          <ul>
+            {% for firma in filter.qs %}
+            <li><a href="{% url 'firma_detail' pk=firma.pk %}">{{ firma.name }}</a></li>
+            {% endfor %}
+          </ul>
+      </div>
+    </div> 
+  </div> 
+
+
 {% endblock %}

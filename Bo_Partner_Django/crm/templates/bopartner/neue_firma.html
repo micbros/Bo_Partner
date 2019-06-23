@@ -3,9 +3,9 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-    <h2>Neue Firma</h2>
+    <h2>Neuer Partner</h2>
     <form method="POST" class="post-form">{% csrf_token %}
         {{ form|crispy }}
-        <button type="submit" class="save btn btn-light btn-sm">Speichern</button>
+        <button type="submit" class="save btn btn-outline-danger btn-md">Speichern</button>
     </form>
 {% endblock %}

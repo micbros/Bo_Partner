@@ -17,21 +17,21 @@
         <p>{{ firma.xKoordinate|linebreaksbr }}<br>
             {{ firma.yKoordinate|linebreaksbr }}</p>
         
-        <hr>
+        
     </div>
 
     <div class="beschreibung">
         <h3>Beschreibung</h3>
 
         <p>{{ firma.freie_beschreibung|linebreaksbr }}</p>
-        <hr>
+        
     </div>
 
     <div class="bereich">
         <h3>Bereiche</h3>
 
         <p>{{ firma.bereich|linebreaksbr }}</p>
-        <hr>
+        
     </div>
 
     {% if user.is_authenticated %}

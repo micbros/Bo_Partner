@@ -4,19 +4,20 @@
 
 {% block content %}
 
-<form method="get">
-        {{ filter.form|crispy}}
-        <button type="submit">Suche</button>
-</form>
-
-<div >
-      <ul>
-      {% for firma in filter.qs %}
-        <li><a href="{% url 'firma_detail' pk=firma.pk %}">{{ firma.name }}</a></li>
-      {% endfor %}
-      </ul>
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <form method="get">
+              {{ filter.form|crispy}}
+              <button type="submit"  class="btn btn-outline-danger btn-md">Suche</button>
+      </form>
     </div>
-<div class="col-6" id="mapid"></div>
+    <div class="col-8">   
+      <div id="mapid"></div>
+    </div>
+  </div>
+</div>
+
 <script>
     function loadMap(event){
 
@@ -43,5 +44,6 @@
     
     document.addEventListener('DOMContentLoaded', loadMap);
 </script>
+
 
 {% endblock %}
