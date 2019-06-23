@@ -32,7 +32,7 @@ h1, h2, h3, h4 {
 }
 
 .save {
-    float: right;
+    float: left;
 }
 
 .post-form textarea, .post-form input {
@@ -55,3 +55,15 @@ h1, h2, h3, h4 {
 }
 
 #mapid { height: 500px; }
+
+
+
+
+
+.navbar .navbar-nav li a:hover {
+    color: #e2001a !important;
+}
+
+
+
+

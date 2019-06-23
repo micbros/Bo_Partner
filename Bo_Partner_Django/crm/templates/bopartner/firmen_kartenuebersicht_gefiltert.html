@@ -1,16 +1,22 @@
 {% extends 'bopartner/base.html' %}
 
+{% load crispy_forms_tags %}
+
 {% block content %}
+
 <form method="get">
-        {{ filter.form.as_p }}
+        {{ filter.form|crispy}}
         <button type="submit">Suche</button>
-      </form>
+</form>
+
+<div >
       <ul>
       {% for firma in filter.qs %}
         <li><a href="{% url 'firma_detail' pk=firma.pk %}">{{ firma.name }}</a></li>
       {% endfor %}
       </ul>
-<div id="mapid"></div>
+    </div>
+<div class="col-6" id="mapid"></div>
 <script>
     function loadMap(event){
 
@@ -37,4 +43,5 @@
     
     document.addEventListener('DOMContentLoaded', loadMap);
 </script>
+
 {% endblock %}

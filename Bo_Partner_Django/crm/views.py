@@ -10,6 +10,10 @@ from .forms import *
 from django.shortcuts import redirect
 from .filters import *
 
+
+def home (request):
+    return render(request, 'bopartner/home.html')
+
 #@login_required
 def firmen(request):
     firms = Firma.objects.all()

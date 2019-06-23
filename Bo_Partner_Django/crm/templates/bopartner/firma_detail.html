@@ -1,37 +1,57 @@
 {% extends 'bopartner/base.html' %}
 
+
+
 {% block content %}
-    <div class="post">
+<div class="post">
 
-        <h2>{{ firma.name }}</h2>
+    <h2>{{ firma.name }}</h2>
+
+    <div class="anschrift">
         <h3>Anschrift</h3>
-        <p>{{ firma.strasse}} {{ firma.hausnummer}} {% if firma.hausnummerzusatz|length %}{{firma.hausnummerzusatz}} {%endif%}</p>
-        <p>{{ firma.plz}} {{firma.ort}}</p>
-        <p>{{ firma.bundesland|linebreaksbr }}</p>
-        <p>{{ firma.xKoordinate|linebreaksbr }}</p>
-        <p>{{ firma.yKoordinate|linebreaksbr }}</p>
-        <p>Primary_Key: {{ firma.pk|linebreaksbr }}</p>
 
-        <h3>Beschreibung</h3>
-        <p>{{ firma.freie_beschreibung|linebreaksbr }}</p>
-
-        <h3>Bereiche</h3>
-        <p>{{ firma.bereich|linebreaksbr }}</p>
+        <p>{{ firma.strasse}} {{ firma.hausnummer}} {% if firma.hausnummerzusatz|length %}{{firma.hausnummerzusatz}}
+            {%endif%}<br>
+            {{ firma.plz}} {{firma.ort}}<br>
+            {{ firma.bundesland|linebreaksbr }}</p>
+        <p>{{ firma.xKoordinate|linebreaksbr }}<br>
+            {{ firma.yKoordinate|linebreaksbr }}</p>
         
-        {% if user.is_authenticated %}
+        <hr>
+    </div>
+
+    <div class="beschreibung">
+        <h3>Beschreibung</h3>
+
+        <p>{{ firma.freie_beschreibung|linebreaksbr }}</p>
+        <hr>
+    </div>
+
+    <div class="bereich">
+        <h3>Bereiche</h3>
+
+        <p>{{ firma.bereich|linebreaksbr }}</p>
+        <hr>
+    </div>
+
+    {% if user.is_authenticated %}
+    <div class="kontakte">
         <h3>Kontakte</h3>
+
         {% for kontakt in kontakte %}
-            {% if kontakt.firma.name == firma.name %}
-                <li><a href="{% url 'kontakt_detail' pk=kontakt.pk %}" >{{ kontakt.vorname }} {{ kontakt.nachname }}</a></li>
-            {% endif %}
+        {% if kontakt.firma.name == firma.name %}
+        <li><a href="{% url 'kontakt_detail' pk=kontakt.pk %}">{{ kontakt.vorname }} {{ kontakt.nachname }}</a></li>
+        {% endif %}
         {% endfor %}
         <h4>
-            <a href="{% url 'neuer_kontakt' %}" >neuer Kontakt <span class="glyphicon glyphicon-plus"></span></a>
+            <a href="{% url 'neuer_kontakt' %}">neuer Kontakt <span class="glyphicon glyphicon-plus"></span></a>
         </h4>
-        
-        {% else %}
-
-        {% endif %}
+        <hr>
     </div>
+
+    {% else %}
+
+    {% endif %}
+</div>
 
 {% endblock %}
