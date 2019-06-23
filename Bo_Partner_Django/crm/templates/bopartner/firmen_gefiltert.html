@@ -13,8 +13,10 @@
       </div>
       <div class="col-8">
           <ul>
+            <br>
+            <li class="list-group-item">Ergebnisse:</li>
             {% for firma in filter.qs %}
-            <li><a href="{% url 'firma_detail' pk=firma.pk %}">{{ firma.name }}</a></li>
+            <li class="list-group-item"><a href="{% url 'firma_detail' pk=firma.pk %}">{{ firma.name }}</a></li>
             {% endfor %}
           </ul>
       </div>
