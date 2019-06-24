@@ -5,6 +5,9 @@
 
 
         <ul>
+            {% if user.is_authenticated %}
+                <li class="list-group-item"><b><a href="{% url 'edit_kontakt' pk=kontakt.pk %}">Kontakt bearbeiten</a><br></b></li>
+            {% endif %}
             <li class="list-group-item"><b>Kontakt</b></li>
             <li class="list-group-item">Vorname: {{ kontakt.vorname }}</li>
             <li class="list-group-item">Nachname: {{ kontakt.nachname }}</li>

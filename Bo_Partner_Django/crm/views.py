@@ -33,6 +33,14 @@ def neue_firma(request):
     return render(request, 'bopartner/neue_firma.html', {'form': form})
 
 
+def edit_firma(request, pk):
+    firma = get_object_or_404(Firma, pk=pk)
+    form = Neue_firma(request.POST or None, instance=firma)
+    if form.is_valid():
+        form.save()
+        return redirect('firma_detail', pk=firma.pk)
+    return render(request, 'bopartner/edit_firma.html', {'form': form})
+
 #@login_required
 def firma_detail(request, pk):
     firma = get_object_or_404(Firma, pk=pk)
@@ -51,10 +59,20 @@ def neuer_kontakt(request):
         form = Neuer_kontakt()
     return render(request, 'bopartner/neuer_kontakt.html', {'form': form})
 
-@login_required
+def edit_kontakt(request, pk):
+    kontakt = get_object_or_404(KontaktFirma, pk=pk)
+    form = Neuer_kontakt(request.POST or None, instance=kontakt)
+    if form.is_valid():
+        form.save()
+        return redirect('kontakt_detail', pk=kontakt.pk)
+    return render(request, 'bopartner/edit_kontakt.html', {'form': form})
+
+
 def kontakt_detail(request, pk):
     kontakt = get_object_or_404(KontaktFirma, pk=pk)
     return render(request, 'bopartner/kontakt_detail.html', {'kontakt':kontakt})
+
+
 
 #@login_required
 def firmen_kartenuebersicht(request):
