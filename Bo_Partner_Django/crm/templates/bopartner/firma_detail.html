@@ -63,6 +63,21 @@
     {% else %}
 
     {% endif %}
+
+    <div>
+            <ul>
+                <li class="list-group-item"><b>Ansprechpartner bei der Hochschule</b></li>
+                <li class="list-group-item">
+                    {% for kontakt in kontakte %}
+                        {% if kontakt.firma.name == firma.name %}
+                            {% for ma in kontakt.hsbo_mitarbeiter.all %}{{ma.first_name}} {{ma.last_name}}
+                    <br>
+                            {% endfor %}
+                        {% endif %}
+                    {% endfor %}</li>
+            </ul>
+    </div>
+    
 </div>
 
 {% endblock %}
