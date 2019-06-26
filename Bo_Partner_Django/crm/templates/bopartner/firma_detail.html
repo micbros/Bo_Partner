@@ -11,9 +11,8 @@
 
         <ul>
             {% if user.is_authenticated %}
-            <li class="list-group-item"><b><a href="{% url 'edit_firma' pk=firma.pk %}">Firma bearbeiten</a><br></b></li>
+            <li class="list-group-item"><b><a href="{% url 'edit_firma' pk=firma.pk %}">Partner bearbeiten</a><br></b></li>
             {% endif %}
-            <li class="list-group-item"><b>Firma: {{firma.name}}</a><br></b></li>
             <li class="list-group-item"><b>{{firma.name}}</b></li>
             <li class="list-group-item"><b>Anschrift</b></li>
             <li class="list-group-item">Straße: {{ firma.strasse }}</li>
