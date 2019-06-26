@@ -1,6 +1,8 @@
 from django.db import models
+from django.conf import settings
 from multiselectfield import MultiSelectField
 import geocoder
+
 
 # Create your models here.
 
@@ -108,7 +110,8 @@ class KontaktFirma(models.Model):
     telefon2 = models.CharField(max_length=30, blank=True, null=True)
     freie_beschreibung = models.TextField(null=True, blank=True)
     
-    firma = models.ForeignKey(Firma,on_delete=models.SET_NULL, null=True, blank=True)
+    firma = models.ForeignKey(Firma,on_delete=models.SET_NULL, null=True, blank=False)
+    hsbo_mitarbeiter = models.ManyToManyField(settings.AUTH_USER_MODEL, blank=False)
 
     def __str__(self):
         return str(self.nachname)+" "+str(self.vorname) + " Primarykey: "+ str(self.pk)

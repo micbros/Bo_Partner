@@ -1,9 +1,9 @@
 {% extends 'bopartner/base.html' %}
 
 {% block content %}
-    <div class="post">
+<div class="post">
 
-
+    <div>
         <ul>
             {% if user.is_authenticated %}
                 <li class="list-group-item"><b><a href="{% url 'edit_kontakt' pk=kontakt.pk %}">Kontakt bearbeiten</a><br></b></li>
@@ -12,15 +12,27 @@
             <li class="list-group-item">Vorname: {{ kontakt.vorname }}</li>
             <li class="list-group-item">Nachname: {{ kontakt.nachname }}</li>
             {% if kontakt.telefon %}
-                <li class="list-group-item">Telefon: {{ kontakt.telefon }}</li>
+            <li class="list-group-item">Telefon: {{ kontakt.telefon }}</li>
             {% endif %}
             {% if kontakt.telefon2 %}
-                <li class="list-group-item">Telefon: {{ kontakt.telefon2 }}</li>
+            <li class="list-group-item">Telefon: {{ kontakt.telefon2 }}</li>
             {% endif %}
             <li class="list-group-item">Email: {{kontakt.email}}</li>
+        </ul>
+    </div>
+    <div>
+        <ul>
             <li class="list-group-item"><b>Beschreibung</b></li>
             <li class="list-group-item">{{ kontakt.freie_beschreibung }}</li>
         </ul>
-
     </div>
+    <div>
+        <ul>
+            <li class="list-group-item"><b>Ansprechpartner bei der Hochschule</b></li>
+            <li class="list-group-item">{% for ma in kontakt.hsbo_mitarbeiter.all %}{{ma.first_name}} {{ma.last_name}}
+                <br>{% endfor %}</li>
+        </ul>
+    </div>
+
+</div>
 {% endblock %}
