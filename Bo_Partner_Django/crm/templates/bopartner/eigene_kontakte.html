@@ -1,0 +1,20 @@
+{% extends 'bopartner/base.html' %}
+
+{% block content %}
+<h2>Eigene Kontakte</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Kontakt</th>
+            <th scope="col">Partner</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for kontakt in eigene_kontakte %}
+        <tr>
+            <td><a href="{% url 'kontakt_detail' pk=kontakt.pk %}">{{ kontakt.vorname }} {{ kontakt.nachname }}</a></td>
+            <td>{{kontakt.firma.name}} </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    {% endblock %}

@@ -46,7 +46,8 @@ def neuer_kontakt(request):
         if form.is_valid():
             kontakt = form.save(commit=False)
             kontakt.save()
-            return redirect('firmen')
+            form.save_m2m()
+            return redirect('kontakt_detail', pk = kontakt.pk)
     else:
         form = Neuer_kontakt()
     return render(request, 'bopartner/neuer_kontakt.html', {'form': form})
@@ -56,13 +57,18 @@ def kontakt_detail(request, pk):
     kontakt = get_object_or_404(KontaktFirma, pk=pk)
     return render(request, 'bopartner/kontakt_detail.html', {'kontakt':kontakt})
 
+@login_required
+def eigene_kontakte(request):
+    eigene_kontakte = KontaktFirma.objects.filter(hsbo_mitarbeiter=request.user)
+    return render(request, 'bopartner/eigene_kontakte.html', {'eigene_kontakte': eigene_kontakte})
+
 #@login_required
 def firmen_kartenuebersicht(request):
     firmen = Firma.objects.all()
     return render(request, 'bopartner/firmen_kartenuebersicht.html', {'firmen': firmen})
 
 def firmen_gefiltert(request):
-    firmen_liste = Firma.objects.all()
+    firmen_liste = Firma.objects.all().order_by('name')
     firmen_filter = Filter_Bereich(request.GET,queryset=firmen_liste)
     return render(request, 'bopartner/firmen_gefiltert.html', {'filter': firmen_filter})
 

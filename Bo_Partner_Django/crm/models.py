@@ -119,14 +119,6 @@ class KontaktFirma(models.Model):
     class Meta:
         verbose_name_plural = "Kontakt Firmen"
 #---------------------------------------------------------    
-class MitarbeiterUni(models.Model):
-    #id_mitarbeiter = models.
-    vorname = models.CharField(max_length=50, blank=False) #max_length = required
-    nachname = models.CharField(max_length=50, blank=False)
-    status = models.CharField(max_length=50, blank=True)
-
-    class Meta:
-        verbose_name_plural = "Mitarbeiter Uni"
 
 class Protokoll(models.Model):
     #id_protokoll = models.
