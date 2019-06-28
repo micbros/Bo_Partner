@@ -35,7 +35,7 @@ class Firma(models.Model):
     )
     
     LISTE_BEFAEHIGUNG = (
-            ('Bacherlorarbeit', 'Bacherlorarbeit'),
+            ('Bachelorarbeit', 'Bachelorarbeit'),
             ('Masterarbeit', 'Masterarbeit'),
             ('Praktikum', 'Praktikum'),
             ('Exkursion', 'Exkursion')

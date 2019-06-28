@@ -7,23 +7,19 @@ class Filter_Bereich(django_filters.FilterSet):
     suche_art = django_filters.ChoiceFilter(choices =Firma.LISTE_ART, field_name='art', method='filter_firma_art')
     suche_bundesland =django_filters.ChoiceFilter(choices =Firma.LISTE_BUNDESLAND, field_name='bundesland', method='filter_firma_bundesland')
     suche_befaehigung =django_filters.ChoiceFilter(choices =Firma.LISTE_BEFAEHIGUNG, field_name='befaehigung', method='filter_firma_befaehigung')
-
+  
     def filter_firma_bereich(self, queryset, name, value):
-
         return queryset.filter(bereich__icontains=value)
 
     def filter_firma_art(self, queryset, name, value):
-
         return queryset.filter(art__icontains=value)
     
     def filter_firma_bundesland(self, queryset, name, value):
-
         return queryset.filter(bundesland__icontains=value)   
 
     def filter_firma_befaehigung(self, queryset, name, value):
-
         return queryset.filter(befaehigung__icontains=value)   
-    
+      
     
     class Meta:
         model = Firma
@@ -37,4 +33,3 @@ class Filter_Bereich(django_filters.FilterSet):
                  },
              },
          }
-
