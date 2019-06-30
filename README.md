@@ -14,6 +14,7 @@ Das Projekt wurde im Rahmen des Bachelor-Studienganges "Geoinformatik 6. Semeste
   <li>Anlegen von Partner Firmen</li>
   <li>Anlegen von Kontakten</li>
   <li>Anzeigen eigener Kontakte</li>
+  <li>Änderung von Partner Firmen und Kontakten</li>
 </ul>
 
 ### Starten des Servers
@@ -26,3 +27,8 @@ Das Projekt wurde im Rahmen des Bachelor-Studienganges "Geoinformatik 6. Semeste
   <li>python manage.py createsuperuser --> legt Super-User an </li>
   <li>python manage.py runserver --> startet den Server  http://127.0.0.1:8000/  </li>
 </ul>
+
+### Admin Seite
+http://127.0.0.1:8000/admin/ <br><br>
+
+Mittels dieser Seite, lassen sich umfangreiche Administrationen durchführen. Kontakte und Firmen lassen sich ändern und anlegen. Zudem gibt es eine umfangreiche Möglichkeit Benutzer und Rechte zu verwalten.
