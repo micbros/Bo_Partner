@@ -9,7 +9,7 @@ Das Projekt wurde im Rahmen des Bachelor-Studienganges "Geoinformatik 6. Semeste
   <li>Filterung der Partner nach verschiedenen Attributen</li>
   <li>Anzeige der gefilterten Partner in einer Karte</li>
 </ul>
-### Funktionen - Login erforderlich
+##Funktionen - Login erforderlich
 <ul>
   <li>Anlegen von Partner Firmen</li>
   <li>Anlegen von Kontakten</li>
