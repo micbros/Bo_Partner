@@ -14,4 +14,4 @@ Das Projekt wurde im Rahmen des Bachelor-Studienganges "Geoinformatik 6. Semeste
   <li>Anlegen von Partner Firmen</li>
   <li>Anlegen von Kontakten</li>
   <li>Anzeigen eigener Kontakte</li>
-  
+</ul>
