@@ -17,12 +17,12 @@ Das Projekt wurde im Rahmen des Bachelor-Studienganges "Geoinformatik 6. Semeste
 </ul>
 
 ### Starten des Servers
-Bo_Partner/Bo_Partner_Django/manage.py --> Skript zur Steuerung des Servers
-
-python manage.py migrate --> stellt Veränderungen der allgemeinen Modelle fest (User usw.)
-python manage.py makemigrations --> übernimmt die Veränderungen in die Datenbank
-python manage.py migrate crm --> stellt Veränderungen der Modelle fest (Kontakt, Partner, usw.)
-python manage.py makemigrations crm --> übernimmt die Veränderungen in die Datenbank
-python manage.py createsuperuser --> legt Super-User an 
-python manage.py runserver --> startet den Server  http://127.0.0.1:8000/
-
+<ul>
+  <li>Bo_Partner/Bo_Partner_Django/manage.py --> Skript zur Steuerung des Servers</li>
+  <li>python manage.py migrate --> stellt Veränderungen der allgemeinen Modelle fest (User usw.)</li>
+  <li>python manage.py makemigrations --> übernimmt die Veränderungen in die Datenbank</li>
+  <li>python manage.py migrate crm --> stellt Veränderungen der Modelle fest (Kontakt, Partner, usw.)</li>
+  <li>python manage.py makemigrations crm --> übernimmt die Veränderungen in die Datenbank</li>
+  <li>python manage.py createsuperuser --> legt Super-User an </li>
+  <li>python manage.py runserver --> startet den Server  http://127.0.0.1:8000/  </li>
+</ul>
